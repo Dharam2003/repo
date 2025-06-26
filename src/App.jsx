@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createContext, useContext, useRef } from 'react';
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaWhatsapp, FaArrowRight, FaReact, FaNodeJs, FaDatabase, FaPython, FaDocker } from "react-icons/fa6";
-import { SiTailwindcss, SiJavascript, SiMongodb, SiSolidity, SiFramer, SiWebgl } from "react-icons/si";
+import { FaGithub, FaLinkedin, FaWhatsapp, FaArrowRight, FaReact, FaNodeJs, FaDatabase, FaPython, FaDocker, FaHtml5, FaCss3Alt, FaJava, FaCode, FaWordpress, FaPhp } from "react-icons/fa6";
+import { SiTailwindcss, SiJavascript, SiMongodb, SiSolidity, SiFramer, SiWebgl, SiMysql, SiNetlify } from "react-icons/si";
 
 // --- ASSETS & CONFIG ---
 const ResumePDF = 'src/assets/Dharam Vir.pdf'; // Replace with your resume path
@@ -29,53 +29,80 @@ const projects = [
     id: 'sign-language-recognition',
     title: 'Sign-Language Recognition',
     description: 'A real-time sign language to text translator empowering communication.',
-    stack: ['Python', 'OpenCV', 'TensorFlow', 'Keras'],
+    stack: ['Python', 'OpenCV', 'MediaPipe', 'Flask', 'Pickle', 'NumPy'],
     image: "src/assets/Project 1.png",
-    live: '#', github: '#',
-    caseStudy: { /* ... case study content ... */  }
+    live: 'https://github.com/Dharam2003/sign-language', 
+    github: 'https://github.com/Dharam2003/sign-language',
+    caseStudy: {
+    problem: "Communication barriers for the deaf and hard of hearing community often result in social exclusion and limited access to essential services due to a lack of widespread sign language understanding.",
+    solution: "Developed a real-time sign language recognition system that captures hand gestures through a webcam and translates them into readable text, enabling smoother communication between sign language users and non-signers.",
+    process: "Built using Python, OpenCV, and MediaPipe for hand landmark detection, combined with a pre-trained machine learning model (loaded via Pickle) to classify signs. Integrated this into a Flask web application that streams live predictions and allows users to store and review recognized signs.",
+    learnings: "Deepened understanding of computer vision, real-time video processing, and gesture-based recognition. Enhanced skills in model integration, MediaPipe landmark extraction, and building inclusive technology for accessibility.",
+    }
   },
   {
     id: 'blockchain-voting-system',
     title: 'Blockchain Voting System',
     description: 'A secure and transparent e-voting platform leveraging blockchain technology.',
-    stack: ['Solidity', 'React', 'Hardhat', 'Ethers.js'],
+    stack: ['HTML', 'CSS', 'JavaScript', 'Netlify'],
     image: "src/assets/Project 2.png",
-    live: '#', github: '#',
-    caseStudy: { /* ... case study content ... */ }
+    live: 'https://votingbyd.netlify.app/', 
+    github: 'https://github.com/Dharam2003',
+    caseStudy: {
+    problem: "Traditional voting systems often face challenges such as lack of accessibility, risk of tampering, and inefficiencies in real-time result tracking.",
+    solution: "Built a secure, web-based voting platform that allows users to register, log in, and cast their vote digitally, ensuring accessibility and transparency in the voting process.",
+    process: "Designed and developed a front-end interface using HTML, CSS, and JavaScript, hosted on Netlify. Implemented user login, admin panel, and voting functionality with client-side routing and session simulation. Emphasized UI clarity to ensure ease of use for both voters and administrators.",
+    learnings: "Learned how to manage client-side routing and form validation, simulate session handling in static environments, and create a responsive, single-page application. Gained experience in structuring multi-role systems (user/admin) and deploying front-end apps to a live server.",
+}
+
   },
   {
     id: 'project-submission-platform',
     title: 'Project Submission Platform',
     description: 'A web app for students and teachers to manage projects.',
-    stack: ['React', 'Node.js', 'MongoDB', 'Express'],
+    stack: ['HTML', 'CSS', 'JavaScript', 'Netlify'],
     image: "src/assets/Project 3.png",
-    live: '#', github: '#',
-    caseStudy: { /* ... case study content ... */ }
+    live: 'https://submitmate.netlify.app/', 
+    github: 'https://github.com/Dharam2003',
+    caseStudy: {
+    problem: "Traditional websites often lack backend support for handling form submissions, making it challenging for non-developers to collect user input without extra infrastructure.",
+    solution: "Created SubmitMate, a static, yet dynamic, web app that enables seamless form submissions using Netlify Forms—no custom backend required.",
+    process: "Designed an intuitive single-page form interface using HTML, CSS, and JavaScript, hosted on Netlify. Leveraged Netlify’s automatic form detection and serverless form handling to receive submissions, view them in the Netlify Admin UI, and configure email or webhook notifications :contentReference[oaicite:0]{index=0}. Utilized simple client-side validation and user feedback mechanisms for submission success.",
+    learnings: "Acquired hands-on experience with the JAMstack model and serverless workflows. Learned to integrate static site deployments with dynamic functionality via Netlify Forms, set up notification workflows, manage spam protection, and improve UX with validation and feedback—all without building a backend.",
+}
+
   },
   {
     id: 'phishing-protection-extension',
     title: 'Phishing Protection Extension',
     description: 'A browser extension that blocks phishing websites.',
-    stack: ['JavaScript', 'HTML/CSS', 'Machine Learning'],
+    stack: ['Python', 'Flask', 'Flask-CORS', 'REST API', 'JSON'],
     image: "src/assets/Project 4.png",
-    live: '#', github: '#',
-    caseStudy: { /* ... case study content ... */ }
+    live: 'https://your-live-demo-link.com', 
+    github: 'https://github.com/Dharam2003/phishing-protection-extension',
+    caseStudy: {
+    problem: "Users browsing the web, especially via extensions or custom tools, often encounter unknown links that may lead to unsafe or malicious domains. Without a backend to verify them, extensions lack the intelligence to assess risk.",
+    solution: "(UNDER DEVELOPMENT) Built a lightweight Flask API that checks whether a given URL is from a predefined list of trusted domains and returns a simple safety prediction.",
+    process: "Developed a RESTful API using Flask with CORS enabled to allow interaction with browser extensions or frontend apps. The `/predict` endpoint accepts a URL via POST request and checks it against a list of known safe domains. Based on the result, it returns a JSON response indicating if the URL is considered safe.",
+    learnings: "Learned how to build secure and minimal Flask APIs, handle JSON POST requests, and implement CORS for browser-extension compatibility. Also gained experience in designing client-server communication for security-based tools.",
+}
+
   }
 ];
 
 const skills = [
-  { name: 'JavaScript (ES6+)', icon: <SiJavascript />, color: 'text-yellow-400' },
-  { name: 'React', icon: <FaReact />, color: 'text-blue-400' },
-  { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: 'text-cyan-400' },
-  { name: 'Framer Motion', icon: <SiFramer />, color: 'text-purple-400' },
-  { name: 'Node.js', icon: <FaNodeJs />, color: 'text-green-400' },
-  { name: 'MongoDB', icon: <SiMongodb />, color: 'text-green-500' },
-  { name: 'Python', icon: <FaPython />, color: 'text-blue-500' },
-  { name: 'Solidity', icon: <SiSolidity />, color: 'text-gray-400' },
-  { name: 'Docker', icon: <FaDocker />, color: 'text-blue-600' },
-  { name: 'WebGL/Three.js', icon: <SiWebgl />, color: 'text-orange-400' },
-  { name: 'REST APIs', icon: <FaDatabase />, color: 'text-red-400' },
-  { name: 'GitHub', icon: <FaGithub />, color: 'text-white' },
+    { name: 'HTML', icon: <FaHtml5 />, color: 'text-orange-500' },
+    { name: 'CSS', icon: <FaCss3Alt />, color: 'text-blue-500' },
+    { name: 'React', icon: <FaReact />, color: 'text-blue-400' },
+    { name: 'Python', icon: <FaPython />, color: 'text-yellow-400' },
+    { name: 'Java', icon: <FaJava />, color: 'text-red-500' },
+    { name: 'C', icon: <FaCode />, color: 'text-gray-400' },
+    { name: 'MySQL', icon: <SiMysql />, color: 'text-blue-600' },
+    { name: 'MongoDB', icon: <SiMongodb />, color: 'text-green-500' },
+    { name: 'Github', icon: <FaGithub />, color: 'text-white' },
+    { name: 'Wordpress', icon: <FaWordpress />, color: 'text-blue-700' },
+    { name: 'Netlify', icon: <SiNetlify />, color: 'text-teal-500' },
+    { name: 'PHP', icon: <FaPhp />, color: 'text-indigo-500' },
 ];
 
 const experience = [
@@ -89,7 +116,7 @@ const experience = [
         year: "2020 - 2022",
         role: "Class XII",
         company: "PM SHRI Kendriya Vidyalaya ",
-        description: "Completed higher secondary education in the Arts stream with subjects including Political Science, History, and English. Developed strong analytical and communication skills through essays, debates, and classroom discussions."
+        description: "Completed higher secondary education in the Arts stream with subjects including geography, History, and English. Developed strong analytical and communication skills through essays, debates, and classroom discussions."
     },
     {
         year: "2010 - 2020",
@@ -206,7 +233,7 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const navItems = ['about', 'projects', 'contact'];
+    const navItems = ['about', 'projects', 'skills', 'contact'];
 
     return (
         <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/50 backdrop-blur-sm' : 'bg-transparent'}`}>
@@ -253,6 +280,7 @@ const HomePage = () => {
             <HeroSection />
             <AboutSection />
             <HorizontalProjectsSection />
+            <SkillsSection />
             <ExperienceSection />
             <ContactSection />
         </div>
@@ -291,7 +319,13 @@ const AboutSection = () => {
             <div className="container mx-auto px-6">
                  <AnimatedText text={user.about.intro} el="h2" className="text-2xl md:text-4xl font-medium max-w-4xl mb-12" />
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-                    <motion.div initial={{opacity:0}} whileInView={{opacity:1}} transition={{duration:1, delay:0.5}} viewport={{once:true}}>
+                    <motion.div 
+                        initial={{opacity:0}} 
+                        whileInView={{opacity:1}} 
+                        transition={{duration:1, delay:0.5}} 
+                        viewport={{once:true}}
+                        className="ml-4" // Added margin to move the image
+                    >
                         <img src={ProfilePhoto} alt={user.name} className="w-48 h-48 rounded-full object-cover"/>
                     </motion.div>
                     <div className="md:col-span-2">
@@ -306,16 +340,22 @@ const AboutSection = () => {
 const HorizontalProjectsSection = () => {
     const { navigateTo, linkEnter, linkLeave } = useApp();
     const targetRef = useRef(null);
-    const { scrollYProgress } = useScroll({ target: targetRef, offset: ["start end", "end start"] });
-    const x = useTransform(scrollYProgress, [0.1, 0.9], ["0%", "-75%"]);
+    const { scrollYProgress } = useScroll({
+        target: targetRef,
+        offset: ["start start", "end end"],
+    });
+
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
 
     return (
-        <section ref={targetRef} id="projects" className="relative h-[300vh] bg-black">
+        <section ref={targetRef} id="projects" className="relative h-[500vh] bg-black">
             <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-                <motion.div style={{ x }} className="flex gap-8 px-8">
-                     <div className="flex-shrink-0 w-screen flex flex-col justify-center items-start pl-[10vw]">
-                         <h2 className="text-5xl md:text-7xl font-bold text-white">Selected Work</h2>
-                     </div>
+                <motion.div style={{ x }} className="flex gap-8 items-center">
+                    <div className="flex-shrink-0 w-screen flex flex-col justify-center items-start pl-[10vw]">
+                        <h2 className="text-5xl md:text-7xl font-bold text-white">
+                            Selected Work
+                        </h2>
+                    </div>
                     {projects.map((project) => (
                         <div key={project.id} className="group relative w-[80vw] h-[70vh] md:w-[60vw] flex-shrink-0 rounded-2xl overflow-hidden" onMouseEnter={linkEnter} onMouseLeave={linkLeave} onClick={() => navigateTo(`project/${project.id}`)}>
                             <img src={project.image} alt={project.title} className="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out group-hover:scale-110" />
@@ -323,13 +363,46 @@ const HorizontalProjectsSection = () => {
                             <div className="absolute bottom-0 left-0 p-8 text-white">
                                 <h3 className="text-3xl md:text-4xl font-bold">{project.title}</h3>
                                 <p className="text-slate-300 mt-2">{project.description}</p>
-                                 <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-2 text-cyan-400 font-bold">
-                                     View Case Study <FaArrowRight/>
-                                 </div>
+                                <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-2 text-cyan-400 font-bold">
+                                    View Case Study <FaArrowRight/>
+                                </div>
                             </div>
                         </div>
                     ))}
                 </motion.div>
+            </div>
+        </section>
+    );
+};
+
+const SkillsSection = () => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, amount: 0.2 });
+
+    return (
+        <section id="skills" className="py-24 sm:py-32 bg-black text-white" ref={ref}>
+            <div className="container mx-auto px-6">
+                <AnimatedText text="My Skills" el="h2" className="text-4xl md:text-5xl font-bold mb-16 text-center"/>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-6xl mx-auto">
+                    {skills.map((skill, i) => (
+                        <motion.div
+                            key={i}
+                            className="flex flex-col items-center justify-center gap-4 p-4 border border-slate-800 rounded-lg"
+                            initial="hidden"
+                            animate={isInView ? "visible" : "hidden"}
+                            custom={i}
+                            variants={{
+                                hidden: { opacity: 0, y: 50 },
+                                visible: (i) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1 } })
+                            }}
+                        >
+                            <div className={`text-5xl ${skill.color}`}>
+                                {skill.icon}
+                            </div>
+                            <p className="font-semibold text-center">{skill.name}</p>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
         </section>
     );
@@ -393,15 +466,106 @@ const ContactSection = () => {
 };
 
 const ProjectDetailPage = () => {
-    // This is a placeholder. A full implementation would fetch project data based on ID.
     const { navigateTo } = useApp();
+    const { page } = useApp();
+    const projectId = page.split('/')[1];
+    const project = projects.find(p => p.id === projectId);
+
+    if (!project) {
+        return (
+            <div className="min-h-screen flex flex-col justify-center items-center bg-black text-white">
+                <h2 className="text-3xl mb-4">Project not found</h2>
+                <button onClick={() => navigateTo('home')} className="text-cyan-400">&larr; Back Home</button>
+            </div>
+        );
+    }
+
     return (
-         <div className="min-h-screen flex flex-col justify-center items-center bg-black text-white">
-            <h2 className="text-3xl mb-4">Project Detail Page</h2>
-            <p className="text-slate-400 mb-8">This is where the detailed case study would go.</p>
-            <button onClick={() => navigateTo('home')} className="text-cyan-400">&larr; Back Home</button>
-        </div>
-    )
+        <motion.div 
+            className="min-h-screen bg-black text-white py-24 px-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+        >
+            <div className="container mx-auto max-w-4xl">
+                <motion.button 
+                    onClick={() => navigateTo('projects')} 
+                    className="text-cyan-400 mb-8 flex items-center gap-2"
+                    whileHover={{ gap: "1rem" }}
+                >
+                    <FaArrowRight className="transform rotate-180" />
+                    Back to Projects
+                </motion.button>
+                <motion.h1 
+                    className="text-4xl md:text-6xl font-bold mb-4"
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                >
+                    {project.title}
+                </motion.h1>
+                <motion.p 
+                    className="text-lg text-slate-400 mb-8"
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.5 }}
+                >
+                    {project.description}
+                </motion.p>
+                <motion.img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-auto rounded-lg mb-12 shadow-lg"
+                    initial={{ scale: 0.95, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                />
+                
+                <div className="bg-light-navy p-8 rounded-lg mb-12">
+                    <h2 className="text-3xl font-bold mb-6 text-white">Case Study</h2>
+                    <div className="space-y-6">
+                        <div>
+                            <h3 className="text-xl font-semibold text-cyan-400 mb-2">Problem</h3>
+                            <p className="text-slate-300">{project.caseStudy.problem}</p>
+                        </div>
+                        <div>
+                            <h3 className="text-xl font-semibold text-cyan-400 mb-2">Solution</h3>
+                            <p className="text-slate-300">{project.caseStudy.solution}</p>
+                        </div>
+                        <div>
+                            <h3 className="text-xl font-semibold text-cyan-400 mb-2">Process</h3>
+                            <p className="text-slate-300">{project.caseStudy.process}</p>
+                        </div>
+                        <div>
+                            <h3 className="text-xl font-semibold text-cyan-400 mb-2">Learnings</h3>
+                            <p className="text-slate-300">{project.caseStudy.learnings}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="flex flex-col md:flex-row gap-8">
+                    <div className="flex-1">
+                        <h2 className="text-2xl font-bold mb-4 text-white">Tech Stack</h2>
+                        <div className="flex flex-wrap gap-2">
+                            {project.stack.map(tech => (
+                                <span key={tech} className="bg-lightest-navy text-slate-300 px-3 py-1 rounded-full text-sm">
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="flex-1 flex md:justify-end items-center gap-4">
+                        <a href={project.live} target="_blank" rel="noopener noreferrer" className="bg-cyan-400 text-black font-bold py-3 px-6 rounded-full hover:bg-cyan-300 transition-colors">
+                            Live Demo
+                        </a>
+                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="border border-slate-400 text-slate-300 font-bold py-3 px-6 rounded-full hover:bg-slate-700 transition-colors">
+                            Repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </motion.div>
+    );
 };
 
 
@@ -424,6 +588,7 @@ function App() {
           case 'home': return <HomePage />;
           case 'about': return <AboutSection />;
           case 'projects': return <HorizontalProjectsSection />;
+          case 'skills': return <SkillsSection />;
           case 'contact': return <ContactSection />;
           default: return <HomePage />;
       }
