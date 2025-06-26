@@ -238,7 +238,7 @@ const Header = () => {
     return (
         <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/50 backdrop-blur-sm' : 'bg-transparent'}`}>
             <nav className="container mx-auto px-6 py-4 flex justify-between items-center text-slate-100">
-                <a href="#home" onClick={() => navigateTo('home')} onMouseEnter={linkEnter} onMouseLeave={linkLeave} className="font-black text-2xl tracking-tighter hover:text-cyan-400 transition-colors">DR</a>
+                <a href="#home" onClick={() => navigateTo('home')} onMouseEnter={linkEnter} onMouseLeave={linkLeave} className="font-black text-2xl tracking-tighter hover:text-cyan-400 transition-colors">DV</a>
                 <div className="hidden md:flex items-center space-x-8">
                     {navItems.map(item => (
                         <a key={item} href={`#${item}`} onClick={() => navigateTo(item)} onMouseEnter={linkEnter} onMouseLeave={linkLeave} className={`capitalize text-sm font-medium transition-colors relative group ${page.startsWith(item) ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}>
