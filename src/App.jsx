@@ -4,8 +4,8 @@ import { FaGithub, FaLinkedin, FaWhatsapp, FaArrowRight, FaReact, FaNodeJs, FaDa
 import { SiTailwindcss, SiJavascript, SiMongodb, SiSolidity, SiFramer, SiWebgl, SiMysql, SiNetlify } from "react-icons/si";
 
 // --- ASSETS & CONFIG ---
-const ResumePDF = 'public/assets/Dharam Vir.pdf'; // Replace with your resume path
-const ProfilePhoto = 'public/assets/Profile.jpg'; // Replace with your photo URL
+const ResumePDF = 'src/assets/Dharam Vir.pdf'; // Replace with your resume path
+const ProfilePhoto = 'src/assets/Profile.jpg'; // Replace with your photo URL
 
 // --- USER DATA ---
 const user = {
@@ -30,7 +30,7 @@ const projects = [
     title: 'Sign-Language Recognition',
     description: 'A real-time sign language to text translator empowering communication.',
     stack: ['Python', 'OpenCV', 'MediaPipe', 'Flask', 'Pickle', 'NumPy'],
-    image: "public/assets/Project 1.png",
+    image: "src/assets/Project 1.png",
     live: 'https://github.com/Dharam2003/sign-language', 
     github: 'https://github.com/Dharam2003/sign-language',
     caseStudy: {
@@ -45,7 +45,7 @@ const projects = [
     title: 'Blockchain Voting System',
     description: 'A secure and transparent e-voting platform leveraging blockchain technology.',
     stack: ['HTML', 'CSS', 'JavaScript', 'Netlify'],
-    image: "public/assets/Project 2.png",
+    image: "src/assets/Project 2.png",
     live: 'https://votingbyd.netlify.app/', 
     github: 'https://github.com/Dharam2003',
     caseStudy: {
@@ -61,7 +61,7 @@ const projects = [
     title: 'Project Submission Platform',
     description: 'A web app for students and teachers to manage projects.',
     stack: ['HTML', 'CSS', 'JavaScript', 'Netlify'],
-    image: "public/assets/Project 3.png",
+    image: "src/assets/Project 3.png",
     live: 'https://submitmate.netlify.app/', 
     github: 'https://github.com/Dharam2003',
     caseStudy: {
@@ -77,7 +77,7 @@ const projects = [
     title: 'Phishing Protection Extension',
     description: 'A browser extension that blocks phishing websites.',
     stack: ['Python', 'Flask', 'Flask-CORS', 'REST API', 'JSON'],
-    image: "public/assets/Project 4.png",
+    image: "src/assets/Project 4.png",
     live: 'https://your-live-demo-link.com', 
     github: 'https://github.com/Dharam2003/phishing-protection-extension',
     caseStudy: {
